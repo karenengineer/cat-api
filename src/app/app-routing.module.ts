@@ -10,7 +10,9 @@ const appRoutes: Routes = [
   {
     path: 'slideshow',
     loadChildren: () => import('./modules/slideshow/slideshow.module').then((m) => m.SlideshowModule)
-  }
+  },
+  {path: '**', redirectTo: 'slideshow'}
+
 ]
 
 @NgModule({
