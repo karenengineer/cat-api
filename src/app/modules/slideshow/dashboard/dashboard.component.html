@@ -1,0 +1,28 @@
+<div class="main-wrapper">
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="category-header">
+        Cat Categories
+      </div>
+      <div class="category"
+           *ngFor="let category of catCategories"
+           (click)="getCatImages(category.id)">
+        <div class="category-name"
+             [class.active]="category.id === categoryId">
+          {{category.name}}
+        </div>
+      </div>
+    </div>
+    <div class="images">
+      <div class="image" *ngFor="let img of catImages">
+        <img [src]="img.url" height="200" width="200" alt="">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="catImageslimit === countEnum.ten" class="see-more" (click)="getCatImages(categoryId, countEnum.twenty)">
+    Show more...
+  </div>
+  <div *ngIf="catImageslimit === countEnum.twenty" class="see-more" (click)="getCatImages(categoryId, countEnum.ten)">
+    Show less...
+  </div>
+</div>
